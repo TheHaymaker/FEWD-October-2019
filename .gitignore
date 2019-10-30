@@ -1,0 +1,7 @@
+instructor
+*instructor*
+node_modules
+package.json
+package-lock.json
+archive
+.vscode
