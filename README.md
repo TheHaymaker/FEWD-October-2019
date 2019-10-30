@@ -1,5 +1,5 @@
 # fewd-chi-october-2019
-Class repo for FEWD
+Class repo for FEWD.
 
 ## Class Schedule
 
