@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: lightblue;
+}
+
+/* Specificity */
+
+/* #1: Cascade */
+
+/* This style rule gets overridden */
+p {
+  color: red;
+}
+
+/* This style rule wins */
+p {
+  color: purple;
+}
+
+/* Element-level selectors */
+/* the thing being used to define a set of style attributes is the html tag itself */
+/* Will apply styles to ALL matching html tags */
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+/* Class name Selectors */
+.unorderedList {
+  padding: 0px;
+  list-style: none;
+  font-size: 35px;
+}
+
+.unorderedList.purpleList {
+  font-size: 50px;
+}
+.purpleList li {
+  color: purple;
+}
+
+.title {
+  font-size: 60px;
+}
+
+@media screen (max-width: 420px) {
+}
+
+/* ID selectors */
+
+#main {
+  background-color: lightpink;
+}
+.box {
+  /* shorthand */
+  margin: 0;
+  /* semi-shorthand */
+  /* top+bottom / left+right */
+  margin: 0px 5px;
+
+  /* semi-shorthand 2 */
+  /* top / left+right / bottom */
+  margin: 0px 5px 3px;
+
+  /* semi-shorthand 3 */
+  /* top, right, bottom, left */
+  margin: 0px 0px 0px 0px;
+
+  /* longhand */
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+
+  /* shorthand */
+  padding: 0;
+  /* semi-shorthand */
+  /* top+bottom / left+right */
+  padding: 0px 5px;
+
+  /* semi-shorthand 2 */
+  /* top / left+right / bottom */
+  padding: 0px 5px 3px;
+
+  /* semi-shorthand 3 */
+  /* top, right, bottom, left */
+  padding: 0px 0px 0px 0px;
+
+  /* longhand */
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-bottom: 0px;
+
+  /* shorthand border */
+  border: 1px solid black;
+
+  /* longhand border */
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+
+  border-top-width: 2px;
+  border-top-style: dashed;
+  border-top-color: red;
+  border-top-left-radius: 40px;
+  /* rounds the corners of the element */
+  border-radius: 30px;
+
+  /* cascade applies here as well internally */
+  margin: 0;
+  margin-left: 20px;
+}
