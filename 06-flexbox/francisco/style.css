@@ -1,0 +1,34 @@
+.flex-area {
+  display: flex;
+  border: 2px dotted black;
+}
+
+.flex-item {
+  background-color: rgba(0, 0, 0, 0.404);
+  margin: 10px;
+}
+
+.flex-item.flex-area {
+  flex-direction: column;
+}
+
+p {
+  color: white;
+}
+
+.child.flex-item:first-child {
+  /* flex: 2; */
+}
+
+.flex-item {
+  margin: 10px;
+  flex: 1;
+}
+
+/* .align-top {
+  align-self: flex-start;
+}
+
+.align-bottom {
+  align-self: flex-end;
+} */
