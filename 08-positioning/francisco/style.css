@@ -1,0 +1,154 @@
+.box {
+  background-color: lightblue;
+  padding: 10px;
+}
+
+section {
+  border: 2px dotted black;
+  padding: 10px;
+}
+
+.relative .box {
+  position: absolute;
+  background-color: red;
+  top: 0px;
+  left: 0px;
+}
+
+button {
+  padding: 10px;
+  position: relative;
+  border: 0px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.5s ease-in-out all;
+}
+
+button:hover {
+  background-color: black;
+}
+
+button:after {
+  content: "";
+  width: 20px;
+  height: 3px;
+  background-color: black;
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 7px);
+  border-radius: 5px;
+  box-shadow: 0px 6px 0px 0px black, 0px 12px 0px 0px black;
+  transition: 0.5s ease-in-out all;
+}
+
+button:hover:after {
+  background: white;
+  box-shadow: 0px 6px 0px 0px white, 0px 12px 0px 0px white;
+  width: 15px;
+  height: 2px;
+  right: 2px;
+}
+
+.wrapper {
+  position: relative;
+  height: 99px;
+  background: lightgoldenrodyellow;
+}
+
+.wrapper:hover .child {
+  height: 100px;
+  width: 100%;
+  border-radius: 0px;
+  transition: 0.5s ease all, 0.5s ease width 0.5s, 0.5s ease height,
+    1s ease border-radius 0.5s;
+}
+
+.child {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: red;
+  transition: 0.5s ease all, 0.5s ease width, 0.5s ease height 0.5s,
+    0.5s ease border-radius 1s;
+}
+
+.track {
+  position: relative;
+}
+
+.wrapper-animate {
+  width: 100%;
+  padding: 20px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.animate-child {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 0%;
+  border-radius: 10px;
+  background-color: tomato;
+  animation: 3s ease 1s infinite alternate backAndForth;
+  opacity: 1;
+  /* transition: 0.5s ease opacity; */
+}
+
+.animate-child-2 {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 0%;
+  border-radius: 10px;
+  background-color: rgb(89, 2, 116);
+  animation: 10s ease-in-out 3 alternate backAndForth;
+  opacity: 1;
+  /* transition: 0.5s ease opacity; */
+}
+
+@keyframes backAndForth {
+  0% {
+    left: 0%;
+  }
+
+  10% {
+    opacity: 0.6;
+  }
+
+  30% {
+    opacity: 0.9;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  70% {
+    opacity: 0.7;
+  }
+
+  100% {
+    left: calc(100% - 20px);
+    opacity: 0.8;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  section {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-height: 780px) {
+  section {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  section {
+    display: none;
+  }
+}
