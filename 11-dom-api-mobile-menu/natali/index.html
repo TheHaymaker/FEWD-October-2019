@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>DOM API</title>
+
+    <style>
+      body {
+        transform: translate(0);
+        transition: 1s all ease;
+      }
+
+      .blue {
+        background-color: lightblue;
+      }
+
+      .red {
+        background-color: lightcoral;
+      }
+
+      .shift {
+        transform: translate(100px, 100px);
+      }
+
+      .mobile {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 1s all ease;
+        transform: translate(-150%, 0px);
+        background-color: darkblue;
+        box-shadow: 2px 2px 10px -2px black;
+        color: whitesmoke;
+      }
+
+      .mobile.shown {
+        transform: translate(0px, 0px);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <section>
+          <div>
+            <button>Click me!</button>
+          </div>
+        </section>
+      </nav>
+    </header>
+
+    <section class="mobile">
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+      <button class="close-btn">close</button>
+    </section>
+
+    <script src="main.js"></script>
+  </body>
+</html>
