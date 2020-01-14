@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Form submission example</title>
+  <style>
+    .hidden {
+      visibility: hidden;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Without AJAX -->
+  <form name="contact" method="POST" netlify>
+
+    <p>
+      <label>Your Name: <input type="text" name="name" required /></label>
+    </p>
+    <p>
+      <label>Your Email: <input type="email" name="email" required /></label>
+    </p>
+    <p>
+      <label>Your Role:
+        <select name="role[]" multiple required>
+          <option value="leader">Leader</option>
+          <option value="follower">Follower</option>
+        </select></label>
+    </p>
+    <p>
+      <label>Message: <textarea name="message" required></textarea></label>
+    </p>
+    <p>
+      <button type="submit">Send</button>
+    </p>
+  </form>
+  <!-- Without AJAX with honeypot-->
+  <form name="contact-honeypot" method="POST" netlify netlify-honeypot="bot-field">
+    <p class="hidden">
+      <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+    </p>
+    <p>
+      <label>Your Name: <input type="text" name="name" required /></label>
+    </p>
+    <p>
+      <label>Your Email: <input type="email" name="email" required /></label>
+    </p>
+    <p>
+      <label>Your Role:
+        <select name="role[]" multiple required>
+          <option value="leader">Leader</option>
+          <option value="follower">Follower</option>
+        </select></label>
+    </p>
+    <p>
+      <label>Message: <textarea name="message" required></textarea></label>
+    </p>
+    <p>
+      <button type="submit">Send</button>
+    </p>
+  </form>
+  <!-- Without AJAX,
+      with honeypot,
+    with reCAPTHCA -->
+  <form name="contact-recaptcha" method="POST" netlify netlify-honeypot="bot-field" data-netlify-recaptcha="true">
+    <p class="hidden">
+      <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+    </p>
+    <p>
+      <label>Your Name: <input type="text" name="name" required /></label>
+    </p>
+    <p>
+      <label>Your Email: <input type="email" name="email" required /></label>
+    </p>
+    <p>
+      <label>Your Role:
+        <select name="role[]" multiple required>
+          <option value="leader">Leader</option>
+          <option value="follower">Follower</option>
+        </select></label>
+    </p>
+    <p>
+      <label>Message: <textarea name="message" required></textarea></label>
+    </p>
+    </p>
+    <div data-netlify-recaptcha="true"></div>
+    <p>
+      <p>
+        <button type="submit">Send</button>
+      </p>
+  </form>
+  <!-- With AJAX -->
+  <form id='contact' action="#contact" name="contact-ajax" method="POST" netlify netlify-honeypot="bot-field">
+    <p class="hidden">
+      <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+    </p>
+    <p>
+      <label>Your Name: <input type="text" name="name" required /></label>
+    </p>
+    <p>
+      <label>Your Email: <input type="email" name="email" required /></label>
+    </p>
+    <p>
+      <label>Your Role:
+        <select name="role[]" multiple required>
+          <option value="leader">Leader</option>
+          <option value="follower">Follower</option>
+        </select></label>
+    </p>
+    <p>
+      <label>Message: <textarea name="message" required></textarea></label>
+    </p>
+    <p>
+      <button type="submit">Send</button>
+    </p>
+  </form>
+
+
+
+  <script>
+    let testForm = document.querySelector("form[name=contact-ajax]");
+
+    testForm.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const formData = new FormData(testForm);
+      fetch(testForm.getAttribute('action'), {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        },
+        body: new URLSearchParams(formData).toString()
+      })
+        .then(res => {
+          if (res) {
+            var successMessage = document.createElement('p')
+            successMessage.setAttribute('id', 'success')
+            successMessage.innerText = 'Thanks for the message!'
+
+            document.body.append(successMessage)
+
+            // clear all the input fields on success
+            Array.from(testForm.querySelectorAll('input')).map(input => {
+              input.value = ''
+            })
+            setTimeout(() => {
+              const body = document.querySelector('body');
+              const success = document.querySelector('#success')
+              body.removeChild(success);
+            }, 4000)
+          }
+
+        });
+    });
+  </script>
+</body>
+
+</html>

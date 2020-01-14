@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>form validation</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <form action="">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 20px;">
+      <div class="subgrid">
+        <label for="firstName">Name:</label>
+        <input id="firstName" type="text" pattern="brett|aaron" required name="firstName" placeholder="Brett" />
+      </div>
+
+      <div class="subgrid">
+        <label for="email">Email:</label>
+        <input id="email" type="email" name="email" required placeholder="youremail@mail.com" />
+      </div>
+    </div>
+    <div style="display: grid;">
+      <label for="message">Message:</label>
+      <textarea name="" id="" cols="30" rows="10"></textarea>
+    </div>
+
+    <label class="switch">
+      <input type="checkbox" />
+      <span class="slider"></span>
+    </label>
+
+    <!-- Rounded switch -->
+    <label class="switch">
+      <input type="checkbox" />
+      <span class="slider round"></span>
+    </label>
+
+    <input type="submit" />
+  </form>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

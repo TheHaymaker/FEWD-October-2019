@@ -1,0 +1,31 @@
+input:focus:valid:not([type="submit"]) {
+  outline: 5px auto green;
+}
+
+input:focus:invalid:not([type="submit"]) {
+  outline: 5px auto red;
+}
+
+.subgrid {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+input[type="submit"] {
+  -webkit-appearance: none;
+  border: none;
+  font-size: 16px;
+  padding: 7px 24px;
+  border-radius: 4px;
+  margin: 7px 0px;
+  box-shadow: 0px 7px 9px -8px grey;
+  position: relative;
+  transition: 0.5s all ease;
+  top: 0;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  top: -3px;
+  box-shadow: 0px 10px 9px -8px grey;
+}
